@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<style>
+textarea { width: 600px; height: 300px; margin-top: 40px }
+</style>
+<script type="application/dart" src="read.dart"></script>
+<script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+</head>
+
+<body>
+
+<textarea id="schema">
+{
+  "x0": {"type": "integer",
+         "description": "Starting X coordinate",
+         "required": true },
+  "str": {"type": "string",
+          "description": "Starting Y coordinate",
+          "required": true },
+  "h": {"type": "integer",
+        "description": "Number of horizontal frames",
+        "required": true },
+  "e1": {"type": "string",
+        "description": "an enum test",
+        "enum": ["foo", "bar"],
+        "required": true },
+  "e2": {"type": "string",
+        "description": "an enum test",
+        "enum": ["foo", "bar"],
+        "required": true },
+  "a1": {"type": "array",
+         "description": "An array of at least 2 elements",
+         "items": { "type": "string" },
+         "minItems": 2,
+         "required": true },
+  "a2": {"type": "array",
+         "description": "An array of at least 2 elements",
+         "items": { "type": "integer" },
+         "minItems": 2,
+         "required": true },
+  "a3": {"type": "array",
+         "description": "An array of at least 2 elements",
+         "items": { "type": "integer" },
+         "minItems": 2,
+         "required": true },
+  "o1": {"type": "object",
+         "description": "An object point",
+         "properties": {"x": {"type": "integer", "required": true},
+                        "y": {"type": "integer"}},
+         "required": true },
+  "v": {"type": "integer",
+        "description": "Number of vertical frames",
+        "required": false }
+}
+</textarea>
+
+<textarea id="input">
+{
+  "x0": 12,
+  "y0": "asd",
+  "e1": "asd",
+  "e2": "foo",
+  "a1": [1],
+  "a2": [1, "2"],
+  "a3": [1, 2],
+  "o1": { },
+  "foo": "nop"
+}
+</textarea>
+
+<div>
+<button id="check">Check</button>
+</div>
+
+</body>
+</html>
